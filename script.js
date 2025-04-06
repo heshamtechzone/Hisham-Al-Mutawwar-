@@ -36,9 +36,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const email = document.getElementById('email').value;
         const message = document.getElementById('message').value;
         
+        // هنا يمكنك إضافة كود لإرسال البيانات إلى التلجرام أو البريد الإلكتروني
         const telegramMessage = `رسالة جديدة من ${name} (${email}):\n\n${message}`;
-        const telegramBotToken = 'YOUR_BOT_TOKEN';
-        const telegramChatId = '201505076374';
+        const telegramBotToken = 'YOUR_BOT_TOKEN'; // استبدل هذا ببوتك
+        const telegramChatId = '201505076374'; // رقم التلجرام الخاص بك
         
         fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${telegramChatId}&text=${encodeURIComponent(telegramMessage)}`)
             .then(response => {
