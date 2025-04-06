@@ -191,7 +191,7 @@
                 </div>
                 <div class="contact-form">
                     <h3>أرسل رسالة</h3>
-                    <form id="contactForm">
+                    <form id="contactForm" action="https://formspree.io/f/xanelezn" method="POST">
                         <div class="form-group">
                             <input type="text" id="name" name="name" required placeholder="اسمك">
                         </div>
@@ -203,9 +203,13 @@
                         </div>
                         <button type="submit" class="btn-primary">إرسال الرسالة</button>
                     </form>
-                    <div id="formSuccess" class="form-success">
+                    <div id="formSuccess" class="form-success" style="display: none;">
                         <i class="fas fa-check-circle"></i>
                         <p>تم إرسال رسالتك بنجاح! سأتواصل معك قريباً.</p>
+                    </div>
+                    <div id="formError" class="form-error" style="display: none;">
+                        <i class="fas fa-times-circle"></i>
+                        <p id="errorText">حدث خطأ أثناء الإرسال. يرجى المحاولة م��ة أخرى.</p>
                     </div>
                 </div>
             </div>
