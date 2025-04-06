@@ -76,6 +76,43 @@
         </div>
     </section>
 
+    <!-- قسم الخدمات -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">الخدمات</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>تطوير مواقع الويب</h3>
+                    <p>تصميم وتطوير مواقع ويب متكاملة باستخدام أحدث التقنيات مثل React و Angular.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>تصميم متجاوب</h3>
+                    <p>مواقع متكيفة مع جميع أحجام الشاشات من الهواتف إلى أجهزة الكمبيوتر المكتبية.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>تصميم واجهات المستخدم</h3>
+                    <p>واجهات مستخدم جذابة وسهلة الاستخدام تعزز تجربة الزائر.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>النشر على GitHub</h3>
+                    <p>استضافة المواقع على GitHub Pages بجودة عالية وتكلفة منخفضة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- قسم أعمالي -->
     <section id="portfolio" class="portfolio">
         <div class="container">
@@ -114,12 +151,99 @@
                     </div>
                 </div>
             </div>
+            <div class="portfolio-more">
+                <a href="#" class="btn-primary">المزيد من الأعمال</a>
+            </div>
         </div>
     </section>
 
-    <!-- باقي الأقسام (الخدمات، التواصل، الفوتر) تبقى كما هي بدون تغيير -->
-    <!-- ... -->
-    
+    <!-- قسم التواصل -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">تواصل معي</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>طرق التواصل</h3>
+                    <p>يمكنك التواصل معي عبر أي من الطرق التالية:</p>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/201505076374" target="_blank">+20 150 507 6374</a>
+                        </li>
+                        <li>
+                            <i class="fab fa-telegram"></i>
+                            <a href="https://t.me/Hesham_Tech_Zone" target="_blank">Hesham_Tech_Zone</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:heshamman2006@gmail.com">heshamman2006@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fab fa-youtube"></i>
+                            <a href="https://youtube.com/@heshamtechzone" target="_blank">Hesham Tech Zone</a>
+                        </li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="https://t.me/Hesham_Tech_Zone" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://youtube.com/@heshamtechzone" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://github.com/heshamtechzone" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>أرسل رسالة</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required placeholder="اسمك">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder="بريدك الإلكتروني">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" required placeholder="رسالتك"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">إرسال الرسالة</button>
+                    </form>
+                    <div id="formSuccess" class="form-success">
+                        <i class="fas fa-check-circle"></i>
+                        <p>تم إرسال رسالتك بنجاح! سأتواصل معك قريباً.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Hesham Tech Zone</h3>
+                    <p>منطقة هشام التقنية</p>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#about">عني</a></li>
+                        <li><a href="#services">الخدمات</a></li>
+                        <li><a href="#portfolio">أعمالي</a></li>
+                        <li><a href="#contact">تواصل</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>تواصل معي</h4>
+                    <ul>
+                        <li><i class="fab fa-whatsapp"></i> +20 150 507 6374</li>
+                        <li><i class="fas fa-envelope"></i> heshamman2006@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Hesham Tech Zone. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
