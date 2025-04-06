@@ -86,16 +86,27 @@ document.addEventListener('DOMContentLoaded', function() {
     
     initAOS();
 
-    // تحميل الصور
-    function loadRealImages() {
-        const profileImage = document.getElementById('profile-image');
-        profileImage.src = 'profile.jpg';
+    // تحميل الصور من Google Drive
+    function loadDriveImages() {
+        const driveImageIds = {
+            profile: '15g-Du1zgKUodab4FKpUwMfbUod1Rx3xm',
+            projects: [
+                '15g3U82rx2Cm7eUCXIoWaUG9YwYO0wb2j',
+                '15gJo-9I6bN7gzVyAOtu4XkfY_JMs2_GA',
+                '15hJgB1BxKSMugTsCmmCNDaRpsFEqg0_y',
+                '15imYHwjK5cxuaf4g9lbqiB-0nhnA1b_h'
+            ]
+        };
         
+        // تعيين صورة الملف الشخصي
+        document.getElementById('profile-image').src = `https://drive.google.com/uc?export=view&id=${driveImageIds.profile}`;
+        
+        // تعيين صور المشاريع
         const portfolioImages = document.querySelectorAll('.portfolio-item img');
         portfolioImages.forEach((img, index) => {
-            img.src = `project${index + 1}.jpg`;
+            img.src = `https://drive.google.com/uc?export=view&id=${driveImageIds.projects[index]}`;
         });
     }
     
-    loadRealImages();
+    loadDriveImages();
 });
