@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /temp/
+Disallow: /admin/
+
+Crawl-delay: 2
+
+Sitemap: https://heshamtechzone.github.io/Hisham-Al-Mutawwar-/sitemap.xml
+Sitemap: https://heshamtechzone.github.io/Hisham-Al-Mutawwar-/sitemap.html
+
+# تعليق: روابط الملفات الثابتة
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# تعليق: إرشادات لمحركات البحث
+User-agent: Googlebot
+Allow: /portfolio/
+Allow: /projects/
+
+User-agent: Bingbot
+Crawl-delay: 3
+
+User-agent: Yandex
+Disallow: /drafts/
