@@ -28,37 +28,50 @@ document.addEventListener('DOMContentLoaded', function() {
     // إرسال نموذج الاتصال
     const contactForm = document.getElementById('contactForm');
     const formSuccess = document.getElementById('formSuccess');
+    const formError = document.getElementById('formError');
     
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-        
-        // هنا يمكنك إضافة كود لإرسال البيانات إلى التلجرام أو البريد الإلكتروني
-        const telegramMessage = `رسالة جديدة من ${name} (${email}):\n\n${message}`;
-        const telegramBotToken = 'YOUR_BOT_TOKEN'; // استبدل هذا ببوتك
-        const telegramChatId = '201505076374'; // رقم التلجرام الخاص بك
-        
-        fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${telegramChatId}&text=${encodeURIComponent(telegramMessage)}`)
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+            
+            fetch(this.action, {
+                method: 'POST',
+                body: new FormData(this),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
             .then(response => {
                 if (response.ok) {
-                    contactForm.style.display = 'none';
                     formSuccess.style.display = 'block';
+                    formError.style.display = 'none';
                     contactForm.reset();
                     
                     setTimeout(() => {
                         formSuccess.style.display = 'none';
-                        contactForm.style.display = 'block';
                     }, 5000);
+                } else {
+                    throw new Error('فشل إرسال الرسالة');
                 }
             })
             .catch(error => {
-                console.error('Error sending message:', error);
-                alert('حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.');
+                console.error('Error:', error);
+                formError.style.display = 'block';
+                
+                setTimeout(() => {
+                    formError.style.display = 'none';
+                }, 5000);
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'إرسال الرسالة';
             });
-    });
+            
+            e.preventDefault();
+        });
+    }
 
     // تحديث سنة حقوق النشر
     document.getElementById('currentYear').textContent = new Date().getFullYear();
