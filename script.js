@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const email = document.getElementById('email').value;
         const message = document.getElementById('message').value;
         
-        // هنا يمكنك إضافة كود لإرسال البيانات إلى التلجرام أو البريد الإلكتروني
         const telegramMessage = `رسالة جديدة من ${name} (${email}):\n\n${message}`;
         const telegramBotToken = 'YOUR_BOT_TOKEN';
         const telegramChatId = '201505076374';
@@ -98,15 +97,20 @@ document.addEventListener('DOMContentLoaded', function() {
             ]
         };
         
-        // تعيين صورة الملف الشخصي
-        document.getElementById('profile-image').src = `https://drive.google.com/uc?export=view&id=${driveImageIds.profile}`;
-        
-        // تعيين صور المشاريع
+        // صورة الملف الشخصي
+        const profileImage = document.getElementById('profile-image');
+        if (profileImage && driveImageIds.profile) {
+            profileImage.src = `https://drive.google.com/uc?export=view&id=${driveImageIds.profile}`;
+        }
+
+        // صور المشاريع
         const portfolioImages = document.querySelectorAll('.portfolio-item img');
         portfolioImages.forEach((img, index) => {
-            img.src = `https://drive.google.com/uc?export=view&id=${driveImageIds.projects[index]}`;
+            if (driveImageIds.projects[index]) {
+                img.src = `https://drive.google.com/uc?export=view&id=${driveImageIds.projects[index]}`;
+            }
         });
     }
-    
+
     loadDriveImages();
 });
